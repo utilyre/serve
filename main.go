@@ -40,7 +40,7 @@ func run() error {
 
 		mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Accept-Ranges", "bytes")
-			io.Copy(w, bytes.NewReader(stdin))
+			_, _ = io.Copy(w, bytes.NewReader(stdin))
 		})
 	} else {
 		name := flag.Arg(0)
